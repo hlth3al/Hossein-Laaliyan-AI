@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هوش مصنوعی حسین لعلیان | صنایع پردرآمد تهرانیها</title>
+    <!-- Vazirmatn Font CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #080c14;
+            --card-bg: rgba(16, 23, 38, 0.75);
+            --card-border: rgba(0, 229, 255, 0.18);
+            --accent-cyan: #00e5ff;
+            --accent-blue: #0077ff;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --glow: 0 0 25px rgba(0, 229, 255, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px 40px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 119, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(0, 229, 255, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .main-title {
+            font-size: 2.3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 20%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .company-subtitle {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .service-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .cta-banner {
+            display: inline-block;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+            box-shadow: var(--glow);
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(0, 229, 255, 0.45); }
+        }
+
+        /* Panels Grid */
+        .panels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .panel-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .panel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-blue));
+            opacity: 0.6;
+            transition: width 0.3s;
+        }
+
+        .panel-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 30px rgba(0, 229, 255, 0.15);
+        }
+
+        .panel-card:hover::before {
+            width: 8px;
+            opacity: 1;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 229, 255, 0.1);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .card-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            text-align: justify;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .card-footer i {
+            transition: transform 0.2s;
+        }
+
+        .panel-card:hover .card-footer i {
+            transform: translateX(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .ceo-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(0, 119, 255, 0.12));
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(0, 119, 255, 0.2);
+            margin-bottom: 12px;
+        }
+
+        .sub-credit {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 600px) {
+            .main-title { font-size: 1.8rem; }
+            .company-subtitle { font-size: 1.1rem; }
+            .cta-banner { font-size: 0.85rem; padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- هدر اصلی -->
+        <header>
+            <h1 class="main-title">هوش مصنوعی حسین لعلیان</h1>
+            <h2 class="company-subtitle">شرکت صنایع پردرآمد تهرانیها</h2>
+            <p class="service-desc">ارائه دهنده پنل، پلتفرم و داشبورد هوش مصنوعی در مدیریت صنایع شما!</p>
+            <div class="cta-banner">
+                <i class="fa-solid fa-hand-pointer" style="margin-left: 6px;"></i>
+                روی پنل دلخواه خود بزن تا اثر هوش مصنوعی در پیشرفت صنایع مورد نظر ببینی!
+            </div>
+        </header>
+
+        <!-- شبکه کارت‌های داشبورد -->
+        <main class="panels-grid">
+
+            <!-- پنل ۱ -->
+            <a href="https://hlth3al.github.io/UAV-Radar-AI/" target="_blank" class="panel-card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                        <h3 class="card-title">پنل فرماندهی عملیات پهپاد رادار گریز</h3>
+                    </div>
+                    <p class="card-desc">
+                        هدایت و کنترل هوشمند پرنده‌های بدون سرنشین رادارگریز با تکیه بر الگوریتم‌های هوش مصنوعی؛ شامل ردیابی مسیر بهینه، دورزدن سامانه‌های پدافندی و تحلیل بلادرنگ سنسورهای حرارتی و اپتیکی جهت تضمین مأموریت‌های استراتژیک.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span>ورود به داشبورد عملیات</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+            </a>
+
+            <!-- پنل ۲ -->
+            <a href="https://hlth3al.github.io/Motor-Ballistic-AI/" target="_blank" class="panel-card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <h3 class="card-title">پنل عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک</h3>
+                    </div>
+                    <p class="card-desc">
+                        سیستم پیشرفته مانیتورینگ متالورژی دقیق، بهینه‌سازی احتراق ابرصوت (Hypersonic) سوخت هیدروژنی و پایش فرآیند خط تولید صنعتی موتورهای بالستیک فوق‌پیشرفته با یادگیری ماشین جهت رفع عیوب دینامیکی.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span>ورود به داشبورد عملیات</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+            </a>
+
+            <!-- پنل ۳ -->
+            <a href="https://hlth3al.github.io/Descovery-Oil-AI/" target="_blank" class="panel-card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-oil-well"></i></div>
+                        <h3 class="card-title">پنل نقطه‌یابی بهینه اکتشاف نفت</h3>
+                    </div>
+                    <p class="card-desc">
+                        پردازش پیشرفته داده‌های ژئوفیزیکی، لرزه‌نگاری و مغناطیس‌سنجی جهت پیش‌بینی دقیق کانون مخازن هیدروکربنی؛ کاهش چشمگیر هزینه‌های حفاری اکتشافی و ارتقای ضریب موفقیت برداشت نفت با تله‌متری هوشمند.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span>ورود به داشبورد عملیات</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+            </a>
+
+            <!-- پنل ۴ -->
+            <a href="https://hlth3al.github.io/Fuel-Tracking-AI/" target="_blank" class="panel-card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-gas-pump"></i></div>
+                        <h3 class="card-title">پنل جامع هوش مصنوعی مانیتورینگ و پیگیری زنجیره سوخت کشور</h3>
+                    </div>
+                    <p class="card-desc">
+                        داشبورد یکپارچه پایش لحظه‌ای چرخه فرآورده‌های نفتی از پالایشگاه تا نازل جایگاه و باک مصرف‌کننده؛ کشف خودکار انحراف توزیع، جلوگیری هوشمند از قاچاق سوخت و تراز مصرف با شبکه‌های عصبی عمیق.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span>ورود به داشبورد عملیات</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+            </a>
+
+            <!-- پنل ۵ -->
+            <a href="https://hlth3al.github.io/UUAV-AI/" target="_blank" class="panel-card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-jet-fighter"></i></div>
+                        <h3 class="card-title">پنل فرماندهی عملیات زپهپاد</h3>
+                    </div>
+                    <p class="card-desc">
+                        پلتفرم هوشمند رهگیری، آگاهی موقعیتی و هماهنگی گروهی ریزپرنده‌ها و ریزسامانه‌های پهپادی (Swarm)؛ تصمیم‌گیری توزیع‌شده با یادگیری تقویتی جهت اجرای سناریوهای پایش و عملیات ویژه هوایی.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span>ورود به داشبورد عملیات</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+            </a>
+
+            <!-- پنل ۶ -->
+            <a href="https://hlth3al.github.io/Solar-AI/" target="_blank" class="panel-card">
+                <div>
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                        <h3 class="card-title">پنل فرماندهی عملیات نیروگاه خورشیدی</h3>
+                    </div>
+                    <p class="card-desc">
+                        مدیریت و کنترل هوشمند بازدهی پنل‌های فتوولتائیک، پیش‌بینی میزان تابش و افت حرارتی، زاویه‌بندی دینامیک پنل‌ها و توزیع پایدار انرژی در شبکه برق مبتنی بر تحلیل داده‌های هواشناسی و بار مصرف.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <span>ورود به داشبورد عملیات</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
+            </a>
+
+        </main>
+
+        <!-- فوتر و مشخصات -->
+        <footer>
+            <div class="ceo-badge">
+                <i class="fa-solid fa-user-tie" style="margin-left: 8px;"></i>
+                مدیر عامل حسین لعلیان - رتبه ۳۲ کنکور دکتری
+            </div>
+            <div class="sub-credit">
+                طراحی و توسعه مهندسی سیستم‌های پیشرفته هوش مصنوعی
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
