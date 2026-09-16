@@ -11,13 +11,13 @@
     <style>
         :root {
             --bg-dark: #06090f;
-            --card-bg: rgba(13, 20, 33, 0.8);
-            --card-border: rgba(0, 229, 255, 0.2);
+            --card-bg: rgba(13, 20, 33, 0.85);
+            --card-border: rgba(0, 229, 255, 0.25);
             --accent-cyan: #00e5ff;
             --accent-blue: #0077ff;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --glow: 0 0 20px rgba(0, 229, 255, 0.3);
+            --glow: 0 0 25px rgba(0, 229, 255, 0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
@@ -30,107 +30,130 @@
             flex-direction: column;
             align-items: center;
             padding: 20px 15px 40px;
-            background-image: radial-gradient(circle at 50% 0%, rgba(0, 119, 255, 0.1) 0%, transparent 50%);
+            background-image: radial-gradient(circle at 50% 0%, rgba(0, 119, 255, 0.12) 0%, transparent 60%);
             background-attachment: fixed;
         }
 
         .container { width: 100%; max-width: 1200px; }
 
-        /* Order Banner */
+        /* Order Callout */
         .order-callout {
-            background: linear-gradient(90deg, rgba(0,229,255,0.1) 0%, rgba(0,119,255,0.1) 100%);
+            background: linear-gradient(90deg, rgba(0,229,255,0.12) 0%, rgba(0,119,255,0.12) 100%);
             border: 1px dashed var(--accent-cyan);
-            padding: 15px;
+            padding: 16px;
             text-align: center;
-            border-radius: 12px;
-            margin-bottom: 30px;
+            border-radius: 14px;
+            margin-bottom: 25px;
             color: var(--accent-cyan);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
         }
 
-        header { text-align: center; margin-bottom: 50px; }
+        header { text-align: center; margin-bottom: 40px; }
 
         .main-title {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 900;
-            background: linear-gradient(to bottom, #fff, var(--accent-cyan));
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .main-link {
-            display: block;
-            color: var(--text-muted);
+            display: inline-block;
+            color: var(--accent-cyan);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+            direction: ltr;
+            border-bottom: 1px dashed rgba(0, 229, 255, 0.4);
+            padding-bottom: 2px;
         }
-        .main-link:hover { color: var(--accent-cyan); }
 
-        .company-subtitle { font-size: 1.3rem; color: #38bdf8; margin-bottom: 10px; }
-        .service-desc { color: var(--text-muted); margin-bottom: 25px; }
+        .company-subtitle { font-size: 1.25rem; color: #38bdf8; margin-bottom: 8px; font-weight: 700; }
+        .service-desc { color: var(--text-muted); margin-bottom: 20px; font-size: 1rem; }
 
         .cta-box {
             display: inline-block;
-            background: rgba(255,255,255,0.05);
-            padding: 10px 25px;
+            background: rgba(255,255,255,0.04);
+            padding: 10px 22px;
             border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0, 229, 255, 0.3);
             font-size: 0.95rem;
+            color: #e2e8f0;
         }
 
         /* Grid System */
         .panels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 22px;
+            margin-bottom: 50px;
         }
 
         .panel-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 25px;
+            border-radius: 18px;
+            padding: 22px;
             text-decoration: none;
             color: inherit;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             backdrop-filter: blur(10px);
         }
 
         .panel-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--accent-cyan);
             box-shadow: var(--glow);
-            background: rgba(16, 23, 38, 0.9);
+            background: rgba(16, 23, 38, 0.95);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
         }
 
         .card-icon {
-            width: 55px; height: 55px;
+            width: 48px; height: 48px;
             background: rgba(0, 229, 255, 0.1);
-            border-radius: 15px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 12px;
             display: flex;
             align-items: center; justify-content: center;
-            font-size: 1.5rem; color: var(--accent-cyan);
-            margin-bottom: 18px;
+            font-size: 1.3rem; color: var(--accent-cyan);
+            flex-shrink: 0;
         }
 
-        .card-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 12px; line-height: 1.5; color: #fff; }
-        .card-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; text-align: justify; flex-grow: 1; }
+        .card-number {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: auto;
+        }
+
+        .card-title { font-size: 1.1rem; font-weight: 800; line-height: 1.5; color: #fff; }
+        .card-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.75; text-align: justify; margin-bottom: 15px; flex-grow: 1; }
 
         .card-btn {
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.08);
             color: var(--accent-cyan);
             font-weight: 600;
+            font-size: 0.9rem;
             display: flex;
-            align-items: center; gap: 8px;
+            align-items: center;
+            justify-content: space-between;
         }
 
         /* Footer Section */
@@ -138,23 +161,22 @@
             width: 100%;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            margin-top: 20px;
+            padding-top: 25px;
         }
 
         .ceo-info {
             background: rgba(0, 229, 255, 0.05);
-            padding: 20px;
-            border-radius: 20px;
+            padding: 18px 25px;
+            border-radius: 16px;
             display: inline-block;
-            border: 1px solid rgba(0, 229, 255, 0.2);
+            border: 1px solid rgba(0, 229, 255, 0.25);
         }
 
-        .ceo-name { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; color: #fff; }
-        .ceo-email { color: var(--accent-cyan); text-decoration: none; font-family: sans-serif; font-size: 1rem; }
+        .ceo-name { font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: #fff; }
+        .ceo-email { color: var(--accent-cyan); text-decoration: none; font-family: monospace, sans-serif; font-size: 0.95rem; }
         
         @media (max-width: 600px) {
-            .main-title { font-size: 1.8rem; }
+            .main-title { font-size: 1.7rem; }
             .panels-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -165,15 +187,15 @@
         <!-- پیام سفارش -->
         <div class="order-callout">
             <i class="fa-solid fa-bullhorn" style="margin-left: 8px;"></i>
-            هر پنل، پلتفرم و داشبورد مدیریتی مبتنی بر هوش مصنوعی مرتبط با صنایع مورد نظر خود را سفارش دهید!
+            هر پنل،پلتفرم و داشبورد مدیریتی مبتنی بر هوش مصنوعی مرتبط با صنایع مورد نظر خود را سفارش دهید!
         </div>
 
         <header>
             <h1 class="main-title">هوش مصنوعی حسین لعلیان</h1>
-            <a href="https://hlth3al.github.io/Hossein-Laaliyan-AI/" class="main-link">https://hlth3al.github.io/Hossein-Laaliyan-AI/</a>
+            <a href="https://hlth3al.github.io/Hossein-Laaliyan-AI/" class="main-link" target="_blank">https://hlth3al.github.io/Hossein-Laaliyan-AI/</a>
             
             <h2 class="company-subtitle">شرکت صنایع پردرآمد تهرانیها</h2>
-            <p class="service-desc">ارائه دهنده پنل، پلتفرم و داشبورد هوش مصنوعی در مدیریت صنایع شما!</p>
+            <p class="service-desc">ارائه دهنده پنل،پلتفرم و داشبورد هوش مصنوعی در مدیریت صنایع شما !</p>
             
             <div class="cta-box">
                 روی پنل دلخواه خود بزن تا اثر هوش مصنوعی در پیشرفت صنایع مورد نظر ببینی!
@@ -181,58 +203,108 @@
         </header>
 
         <main class="panels-grid">
+            
             <!-- پنل ۱ -->
             <a href="https://hlth3al.github.io/UAV-Radar-AI/" target="_blank" class="panel-card">
-                <div class="card-icon"><i class="fa-solid fa-satellite-dish"></i></div>
-                <h3 class="card-title">پنل فرماندهی عملیات پهپاد رادار گریز</h3>
-                <p class="card-desc">مدیریت هوشمند پروازهای شناسایی و تهاجمی با استفاده از هوش مصنوعی جهت مسیریابی خودکار و پنهان‌کاری در برابر رادارهای دشمن و تحلیل داده‌های محیطی.</p>
-                <div class="card-btn">ورود به داشبورد <i class="fa-solid fa-chevron-left"></i></div>
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                        <span class="card-number">پنل ۱</span>
+                    </div>
+                    <h3 class="card-title">پنل فرماندهی عملیات پهپاد رادار گریز</h3>
+                    <p class="card-desc">هدایت و کنترل هوشمند پرنده‌های بدون سرنشین رادارگریز با الگوریتم‌های هوش مصنوعی؛ ردیابی مسیر بهینه، دورزدن سامانه‌های پدافندی و تحلیل بلادرنگ سنسورهای حرارتی و اپتیکی.</p>
+                </div>
+                <div class="card-btn">
+                    <span>ورود به داشبورد</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
             </a>
 
             <!-- پنل ۲ -->
             <a href="https://hlth3al.github.io/Motor-Ballistic-AI/" target="_blank" class="panel-card">
-                <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
-                <h3 class="card-title">پنل عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک</h3>
-                <p class="card-desc">کنترل کیفی و مانیتورینگ دقیق خطوط تولید پیشرفته موتورهای جت؛ پایش پارامترهای ترمودینامیکی و احتراق سوخت هیدروژنی با دقت میکروسکوپی توسط AI.</p>
-                <div class="card-btn">ورود به داشبورد <i class="fa-solid fa-chevron-left"></i></div>
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+                        <span class="card-number">پنل ۲</span>
+                    </div>
+                    <h3 class="card-title">پنل عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک</h3>
+                    <p class="card-desc">مانیتورینگ متالورژی دقیق، بهینه‌سازی احتراق ابرصوت (Hypersonic) سوخت هیدروژنی و پایش فرآیند خط تولید صنعتی موتورهای بالستیک با یادگیری ماشین.</p>
+                </div>
+                <div class="card-btn">
+                    <span>ورود به داشبورد</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
             </a>
 
             <!-- پنل ۳ -->
             <a href="https://hlth3al.github.io/Descovery-Oil-AI/" target="_blank" class="panel-card">
-                <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
-                <h3 class="card-title">پنل نقطه یابی بهینه اکتشاف نفت</h3>
-                <p class="card-desc">تحلیل داده‌های زمین‌شناسی و لرزه‌نگاری برای شناسایی دقیق مخازن زیرزمینی؛ بهینه‌سازی فرآیند حفاری و کاهش ریسک اکتشاف با پردازش ابری.</p>
-                <div class="card-btn">ورود به داشبورد <i class="fa-solid fa-chevron-left"></i></div>
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-oil-well"></i></div>
+                        <span class="card-number">پنل ۳</span>
+                    </div>
+                    <h3 class="card-title">پنل نقطه یابی بهینه اکتشاف نفت</h3>
+                    <p class="card-desc">پردازش پیشرفته داده‌های ژئوفیزیکی و لرزه‌نگاری جهت پیش‌بینی دقیق کانون مخازن هیدروکربنی، کاهش هزینه‌های حفاری و ارتقای ضریب موفقیت برداشت نفت.</p>
+                </div>
+                <div class="card-btn">
+                    <span>ورود به داشبورد</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
             </a>
 
-            <!-- پنل ۴ -->
+            <!-- پنل ۴ (اصلاح شده) -->
             <a href="https://hlth3al.github.io/Fuel-Tracking-AI/" target="_blank" class="panel-card">
-                <div class="card-icon"><i class="fa-solid fa-truck-fast"></i></div>
-                <h3 class="card-title">پنل جامع هوش مصنوعی مانیتورینگ و پیگیری زنجیره سوخت کشور</h3>
-                <p class="card-desc">ردیابی هوشمند محموله‌های سوختی از پالایشگاه تا مصرف‌کننده نهایی؛ جلوگیری از هدررفت منابع و پیش‌بینی نوسانات تقاضا در شبکه توزیع.</p>
-                <div class="card-btn">ورود به داشبورد <i class="fa-solid fa-chevron-left"></i></div>
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-gas-pump"></i></div>
+                        <span class="card-number">پنل ۴</span>
+                    </div>
+                    <h3 class="card-title">پنل جامع هوش مصنوعی مانیتورینگ و پیگیری زنجیره سوخت کشور (پالایشگاه تا باک مصرف‌کننده)</h3>
+                    <p class="card-desc">پایش لحظه‌ای و هوشمند چرخه فرآورده‌های نفتی از پالایشگاه تا باک مصرف‌کننده؛ کشف انحراف توزیع، جلوگیری از قاچاق سوخت و تراز مصرف با شبکه‌های عصبی.</p>
+                </div>
+                <div class="card-btn">
+                    <span>ورود به داشبورد</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
             </a>
 
             <!-- پنل ۵ -->
             <a href="https://hlth3al.github.io/UUAV-AI/" target="_blank" class="panel-card">
-                <div class="card-icon"><i class="fa-solid fa-plane-up"></i></div>
-                <h3 class="card-title">پنل فرماندهی عملیات زپهپاد</h3>
-                <p class="card-desc">سامانه مدیریت یکپارچه و هماهنگ‌سازی دسته‌های پهپادی (Swarm) برای مأموریت‌های پیچیده نظارتی و عملیاتی با هماهنگی بلادرنگ مبتنی بر هوش مصنوعی.</p>
-                <div class="card-btn">ورود به داشبورد <i class="fa-solid fa-chevron-left"></i></div>
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-jet-fighter"></i></div>
+                        <span class="card-number">پنل ۵</span>
+                    </div>
+                    <h3 class="card-title">پنل فرماندهی عملیات زپهپاد</h3>
+                    <p class="card-desc">پلتفرم هوشمند رهگیری، آگاهی موقعیتی و هماهنگی گروهی ریزپرنده‌ها (Swarm)؛ تصمیم‌گیری توزیع‌شده با یادگیری تقویتی برای اجرای سناریوهای عملیاتی.</p>
+                </div>
+                <div class="card-btn">
+                    <span>ورود به داشبورد</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
             </a>
 
             <!-- پنل ۶ -->
             <a href="https://hlth3al.github.io/Solar-AI/" target="_blank" class="panel-card">
-                <div class="card-icon"><i class="fa-solid fa-sun"></i></div>
-                <h3 class="card-title">پنل فرماندهی عملیات نیروگاه خورشیدی</h3>
-                <p class="card-desc">بهینه‌سازی دریافت انرژی و مانیتورینگ سلامت پنل‌ها؛ پیش‌بینی تولید برق بر اساس الگوهای اقلیمی و مدیریت هوشمند شبکه توزیع نیروگاه.</p>
-                <div class="card-btn">ورود به داشبورد <i class="fa-solid fa-chevron-left"></i></div>
+                <div>
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fa-solid fa-sun"></i></div>
+                        <span class="card-number">پنل ۶</span>
+                    </div>
+                    <h3 class="card-title">پنل فرماندهی عملیات نیروگاه خورشیدی</h3>
+                    <p class="card-desc">مدیریت و کنترل هوشمند بازدهی پنل‌های فتوولتائیک، پیش‌بینی میزان تابش، زاویه‌بندی دینامیک و توزیع پایدار انرژی بر اساس الگوریتم‌های داده‌محور.</p>
+                </div>
+                <div class="card-btn">
+                    <span>ورود به داشبورد</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </div>
             </a>
+
         </main>
 
         <footer>
             <div class="ceo-info">
-                <div class="ceo-name">مدیر عامل حسین لعلیان - رتبه ۳۲ کنکور دکتری</div>
+                <div class="ceo-name">مدیر عامل حسین لعلیان-رتبه ۳۲ کنکور دکتری</div>
                 <a href="mailto:ai.algorithms.ballistics@gmail.com" class="ceo-email">ai.algorithms.ballistics@gmail.com</a>
             </div>
         </footer>
