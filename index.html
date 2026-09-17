@@ -83,6 +83,32 @@
       box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
     }
 
+    /* باکس بیانیه حقوقی و فنی اوایل پنل */
+    .disclaimer-box {
+      background: #091220;
+      border: 1px solid #1e3a5f;
+      border-right: 4px solid var(--gold);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .disclaimer-header {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .disclaimer-body {
+      font-size: 0.88rem;
+      line-height: 1.9;
+      color: #cbd5e1;
+      text-align: justify;
+    }
+
     /* لیست سامانه‌ها */
     .grid {
       display: flex;
@@ -196,6 +222,16 @@
       <div class="order-cta">پنل،پلتفرم و داشبورد مدیریتی صنایع خود را سفارش دهید</div>
     </header>
 
+    <!-- بیانیه حقوقی و فنی سیستم در اوایل پنل -->
+    <div class="disclaimer-box">
+      <div class="disclaimer-header">⚠️ بیانیه حقوقی و فنی سیستم (Demo Verification):</div>
+      <div class="disclaimer-body">
+        جهت ممانعت از کپی‌برداری غیرمجاز و حفظ حقوق مالکیت فکری، این پنلها؛پلتفرمها و داشبوردهای ارائه‌شده صرفاً یک دمو با داده‌های نمونه و تقلیل‌یافته (Synthetic/Minimal) می‌باشد. که در صورت ثبت سفارش صنعتی، پنل،پلتفرم و داشبورد نهایی شما بصورت تکاملی توسعه یافته و از طریق پروتکل‌های سخت‌افزاری صنعتی (HIL) به لبه‌های پردازشی واقعی (Real-Time Sensors Edge)، داده‌های واقعی و مدل‌های شبیه‌ساز Simulink متصل می‌گردد تا کمترین ضریب خطا محاسبه شود.
+        <br><br>
+        و هر زمان پل واقعی Simulink/HIL و سنسورهای هوش مصنوعی لبه فدرال متصل شود، سیستم شما آماده دریافت اطلاعات زنده خواهد بود.
+      </div>
+    </div>
+
     <!-- ۱۰ درگاه مستقیم و سریع -->
     <div class="grid">
 
@@ -212,7 +248,7 @@
       <a href="https://hlth3al.github.io/Motor-Ballistic-AI/" target="_blank" class="system-link">
         <div class="link-right">
           <span class="index-badge">۲</span>
-          <span class="system-name">پنل،داشبورد و پلتفرم فرماندهی عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک</span>
+          <span class="system-name">پنل،داشبورد و پلتفرم فرماندهی عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک:</span>
         </div>
         <span class="btn-action">ورود به سامانه ←</span>
       </a>
