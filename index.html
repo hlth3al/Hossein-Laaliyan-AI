@@ -6,219 +6,97 @@
 <title>درگاه جامع فرماندهی عملیات هوش مصنوعی حسین لعلیان</title>
 <style>
 :root {
-  --bg-color: #040914;
-  --card-bg: rgba(10, 25, 47, 0.95);
-  --border-color: #1e3a5f;
-  --accent-cyan: #00f2ff;
-  --accent-gold: #f59e0b;
-  --accent-green: #10b981;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
+  --bg-color: #040914; --card-bg: #0a192f; --accent-cyan: #00f2ff;
+  --accent-gold: #f59e0b; --text-primary: #f8fafc; --text-secondary: #94a3b8;
 }
+body { background: var(--bg-color); color: var(--text-primary); font-family: Tahoma, sans-serif; padding: 20px; }
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
-body { background: var(--bg-color); color: var(--text-primary); padding: 20px; line-height: 1.6; }
+.header { background: #091a2e; border: 1px solid var(--accent-cyan); padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 20px; }
+.header h1 { color: var(--accent-cyan); font-size: 20px; margin-bottom: 15px; }
+.comp-name { color: var(--accent-gold); font-size: 16px; font-weight: bold; margin-bottom: 5px; }
+.slogan { color: var(--accent-cyan); font-size: 14px; margin-bottom: 10px; }
+.dev-info { background: #0f172a; padding: 10px; border-radius: 6px; display: inline-block; font-size: 13px; color: var(--text-secondary); }
 
-.header {
-  background: #091a2e; border: 1px solid var(--accent-cyan); border-radius: 10px;
-  padding: 24px; text-align: center; margin-bottom: 20px;
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+.cta-sticky {
+  position: sticky; top: 10px; z-index: 1000; background: var(--accent-gold);
+  color: #000; padding: 12px; border-radius: 8px; font-weight: bold; text-align: center;
+  margin-bottom: 20px; cursor: pointer; animation: pulse 2s infinite;
 }
-.header h1 { font-size: 19px; color: var(--accent-cyan); margin-bottom: 12px; }
-.company-badge {
-  display: inline-block; background: #0f2b48; border: 1px solid #2a5a8c;
-  color: var(--accent-gold); padding: 8px 18px; border-radius: 6px; font-weight: bold; font-size: 15px;
-}
-.company-subtitle {
-  display: block; width: fit-content; margin: 10px auto;
-  color: var(--accent-gold); border: 1px solid var(--accent-gold);
-  background: rgba(245, 158, 11, 0.1); padding: 5px 15px; border-radius: 6px;
-  font-weight: bold; font-size: 14px;
-}
-.company-desc { color: #cbd5e1; font-size: 13px; margin: 8px 0; }
-.cta-banner {
-  background: linear-gradient(90deg, rgba(16, 185, 129, 0.2), rgba(0, 242, 255, 0.2));
-  border: 1px solid var(--accent-green); color: #a7f3d0; padding: 8px 15px;
-  border-radius: 6px; display: inline-block; font-size: 12.5px; font-weight: bold; margin-top: 5px;
-}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
 
-.disclaimer-box {
-  background: #0b1d33; border-right: 4px solid var(--accent-gold); border-radius: 6px;
-  padding: 14px 18px; margin-bottom: 25px; border-top: 1px solid #1e3a5f;
-  border-bottom: 1px solid #1e3a5f; border-left: 1px solid #1e3a5f;
-}
-.disclaimer-title { color: var(--accent-gold); font-size: 13.5px; font-weight: bold; margin-bottom: 6px; }
-.disclaimer-text { color: #94a3b8; font-size: 12px; line-height: 1.8; text-align: justify; }
+.disclaimer { border: 1px solid var(--accent-gold); padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 13px; line-height: 1.8; text-align: justify; background: #161609; }
+.disclaimer b { color: var(--accent-gold); }
 
-.grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px;
-  margin-bottom: 30px;
-}
-.panel-card {
-  background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px;
-  padding: 16px; display: flex; flex-direction: column; justify-content: space-between;
-  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; text-decoration: none;
-}
-.panel-card:hover {
-  transform: translateY(-3px); border-color: var(--accent-cyan);
-  box-shadow: 0 4px 15px rgba(0, 242, 255, 0.15);
-}
-.panel-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
-.panel-num {
-  background: #0d2847; color: var(--accent-cyan); border: 1px solid #1e4a7a;
-  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
-  border-radius: 6px; font-weight: bold; font-size: 14px; flex-shrink: 0;
-}
-.panel-title { color: #f8fafc; font-size: 13.5px; font-weight: bold; line-height: 1.5; }
-.panel-summary {
-  color: #94a3b8; font-size: 12px; line-height: 1.65; margin: 8px 0 12px 0;
-  text-align: justify; border-top: 1px dashed rgba(30, 58, 95, 0.6); padding-top: 8px;
-}
-.btn-enter {
-  background: #0b223d; color: var(--accent-cyan); border: 1px solid #1c4b79;
-  padding: 8px 12px; border-radius: 5px; font-size: 12px; text-align: center;
-  font-weight: bold; transition: 0.2s; margin-top: auto;
-}
-.panel-card:hover .btn-enter { background: var(--accent-cyan); color: #040914; }
-
-.footer {
-  background: #081626; border: 1px solid var(--border-color); border-radius: 8px;
-  padding: 16px 20px; text-align: center; font-size: 13px;
-}
-.footer strong { color: var(--accent-cyan); }
-.footer code { color: var(--accent-gold); font-size: 13px; font-weight: bold; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; }
+.card { background: var(--card-bg); border: 1px solid #1e3a5f; padding: 15px; border-radius: 8px; transition: 0.3s; }
+.card:hover { border-color: var(--accent-cyan); transform: translateY(-5px); }
+.card h3 { color: var(--accent-cyan); font-size: 14px; margin-bottom: 10px; }
+.card p { font-size: 12px; color: var(--text-secondary); margin-bottom: 15px; height: 50px; }
+.btn { display: block; background: #00f2ff22; color: var(--accent-cyan); text-align: center; padding: 8px; border-radius: 5px; text-decoration: none; font-size: 12px; font-weight: bold; border: 1px solid var(--accent-cyan); }
 </style>
+<script>
+// تابع پخش صدای بوق
+function playBeep() {
+    try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.frequency.value = 880;
+        gain.gain.value = 0.1;
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.1);
+    } catch(e) { console.log("Audio API blocked"); }
+}
+</script>
 </head>
 <body>
 
 <div class="header">
   <h1>🌐 درگاه جامع فرماندهی عملیات هوش مصنوعی حسین لعلیان</h1>
-  <div class="company-badge">شرکت صنایع پردرآمد تهرانیها</div>
-  <div class="company-subtitle">شرکت هوش مصنوعی ما ایرانیها</div>
-  <div class="company-desc">تولید کننده داشبوردهای هوش مصنوعی، پنلهای هوش مصنوعی و پلتفرمهای هوش مصنوعی</div>
-  <div class="cta-banner">💼 پنل، پلتفرم و داشبورد مدیریتی صنایع خود را سفارش دهید</div>
+  <div class="comp-name">نمونه کارهای انجام شده توسط شرکت صنایع پردرآمد تهرانیها</div>
+  <div class="slogan">شرکت هوش مصنوعی ما ایرانیها</div>
+  <p style="font-size: 12px; margin: 10px 0;">تولید کننده داشبوردهای هوش مصنوعی، پنلهای هوش مصنوعی و پلتفرمهای هوش مصنوعی</p>
+  <div class="dev-info">مدیر عامل: حسین لعلیان؛ رتبه ۳۲ کنکور دکتری | رایانامه: ai.algorithms.ballistics@gmail.com</div>
 </div>
 
-<div class="disclaimer-box">
-  <div class="disclaimer-title">⚠️ بیانیه حقوقی و فنی سیستم (Demo Verification):</div>
-  <div class="disclaimer-text">
-    جهت ممانعت از کپی‌برداری غیرمجاز، این پنلها صرفاً دمو با داده‌های نمونه می‌باشد. نسخه عملیاتی نهایی مستقیماً به سنسورها و هسته محاسباتی الگوریتم‌های اختصاصی در محیط صنعتی متصل می‌گردد.
-  </div>
+<a href="mailto:ai.algorithms.ballistics@gmail.com" class="cta-sticky">💼 برای سفارش پنل و داشبورد مدیریتی صنایع خود کلیک کنید (مشاوره رایگان)</a>
+
+<div class="disclaimer">
+  <b>⚠️ بیانیه حقوقی و فنی سیستم (Demo Verification):</b><br>
+  جهت ممانعت از کپی‌برداری غیرمجاز، این پنلها صرفاً دمو با داده‌های نمونه می‌باشد. نسخه عملیاتی نهایی مستقیماً به سنسورها و هسته محاسباتی الگوریتم‌های اختصاصی در محیط صنعتی متصل می‌گردد.<br>
+  در صورت سفارش، این سیستمها به شکلی اختصاصی بازطراحی و تحویل خواهد شد که با اتصال بی‌واسطه به لبه‌های واقعی سخت‌افزاری (Hardware-in-the-Loop - HIL)، پایگاه استنتاج فازی ANFIS و سایر الگوریتمهای فراایتکاری و بلوک‌های مدل‌سازی‌شده در Simulink، پایدارترین پاسخ دینامیکی، هدایتی و بهینه را در شرایط مهم و عملیاتی فراهم آورد.
 </div>
 
 <div class="grid">
-  <!-- ۱ -->
-  <a href="https://hlth3al.github.io/UAV-Radar-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۱</div><div class="panel-title">پنل فرماندهی عملیات پهپاد رادار گریز</div></div>
-      <div class="panel-summary">بهینه‌سازی مسیر تاکتیکی، پنهان‌کاری در برابر سامانه‌های کشف راداری و ناوبری هوشمند در مناطق پدافندی.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
+  <!-- پنل ها -->
+  <script>
+    const panels = [
+      { t: "۱. پنل فرماندهی عملیات پهپاد رادار گریز", d: "بهینه‌سازی مسیر تاکتیکی، پنهان‌کاری در برابر سامانه‌های کشف راداری و ناوبری هوشمند در مناطق پدافندی.", l: "https://hlth3al.github.io/UAV-Radar-AI/" },
+      { t: "۲. پنل فرماندهی عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک", d: "مدیریت احتراق مافوق‌صوت، پایداری پیشرانه‌های هیدروژنی و بالستیک هوشمند موشک‌های نسل جدید.", l: "https://hlth3al.github.io/Motor-Ballistic-AI/" },
+      { t: "۳. پنل فرماندهی عملیات نقطه‌یابی بهینه اکتشاف نفت", d: "تحلیل داده‌های لرزه‌نگاری جهت مکان‌یابی دقیق مخازن هیدروکربوری با بالاترین ضریب بازدهی عملیاتی.", l: "https://hlth3al.github.io/Descovery-Oil-AI/" },
+      { t: "۴. پنل فرماندهی عملیات مانیتورینگ و پیگیری زنجیره سوخت کشور", d: "پایش هوشمند جریان سوخت از پالایشگاه تا مصرف‌کننده نهایی جهت پیشگیری از انحراف و قاچاق.", l: "https://hlth3al.github.io/Fuel-Tracking-AI/" },
+      { t: "۵. پنل فرماندهی عملیات زپهپاد (شناورهای بدون سرنشین زیرسطحی هوشمند)", d: "ناوبری خودمختار زیرسطحی، سونار هوشمند و پایش امنیتی خطوط ساحلی و دریایی کشور.", l: "https://hlth3al.github.io/UUAV-AI/" },
+      { t: "۶. پنل فرماندهی عملیات نیروگاه خورشیدی هوشمند", d: "پیش‌بینی تابش، مدیریت ردیاب‌های خورشیدی و تزریق بهینه برق به شبکه سراسری.", l: "https://hlth3al.github.io/Solar-AI/" },
+      { t: "۷. پنل فرماندهی عملیات پایش سلامت تجهیزات دوار و توربین‌ها", d: "تحلیل ارتعاشات غیرخطی، تشخیص واماندگی قطعات و پیش‌بینی عمر مفید (RUL) پیش از خرابی.", l: "https://hlth3al.github.io/Turbine-PHM-AI/" },
+      { t: "۸. پنل فرماندهی عملیات ناوبری امن و ضد جَمینگ/اسپوفینگ", d: "ناوبری تاب‌آور در محیط‌های جنگ الکترونیک با استفاده از تلفیق داده‌های اینرسیایی و بصری.", l: "https://hlth3al.github.io/UAV-Navigation-AI/" },
+      { t: "۹. پنل فرماندهی عملیات پایش پیوستگی و ضد سرقت خطوط لوله", d: "تشخیص بلادرنگ نشتی و انشعابات غیرمجاز در شبکه گسترده خطوط انتقال نفت و گاز.", l: "https://hlth3al.github.io/Pipeline-AI/" },
+      { t: "۱۰. پنل فرماندهی عملیات بهینه‌سازی و مدیریت ریزشبکه‌های هیبریدی", d: "مدیریت بار شبکه، کاهش اوج مصرف و پایداری تغذیه صنایع بزرگ با منابع تولید پراکنده.", l: "https://hlth3al.github.io/Microgrid-AI/" },
+      { t: "۱۱. پنل هوش مصنوعی انجام دهنده خواسته های دانش آموز و دانشجوی مجازی", d: "دستیار آموزشی هوشمند جهت حل مسائل پیچیده، تدوین متدولوژی مطالعاتی و آموزش گام‌به‌گام.", l: "https://hlth3al.github.io/Teacher-AI/" },
+      { t: "۱۲. پنل فرماندهی عملیاتهای بانک مرکزی", d: "نظارت بر جریان‌های پولی، کنترل سفته‌بازی ارزی و دیسپاچینگ هوشمند منابع نقدینگی بانکی.", l: "https://hlth3al.github.io/CCB-AI/" }
+    ];
 
-  <!-- ۲ -->
-  <a href="https://hlth3al.github.io/Motor-Ballistic-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۲</div><div class="panel-title">پنل فرماندهی عملیات تولید انبوه موتورهای اسکرم جت هیدروژنه موشکهای بالستیک</div></div>
-      <div class="panel-summary">مدیریت احتراق مافوق‌صوت، پایداری پیشرانه‌های هیدروژنی و بالستیک هوشمند موشک‌های نسل جدید.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۳ -->
-  <a href="https://hlth3al.github.io/Descovery-Oil-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۳</div><div class="panel-title">پنل فرماندهی عملیات نقطه‌یابی بهینه اکتشاف نفت</div></div>
-      <div class="panel-summary">تحلیل داده‌های لرزه‌نگاری جهت مکان‌یابی دقیق مخازن هیدروکربوری با بالاترین ضریب بازدهی عملیاتی.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۴ -->
-  <a href="https://hlth3al.github.io/Fuel-Tracking-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۴</div><div class="panel-title">پنل فرماندهی عملیات مانیتورینگ و پیگیری زنجیره سوخت کشور</div></div>
-      <div class="panel-summary">پایش هوشمند جریان سوخت از پالایشگاه تا مصرف‌کننده نهایی جهت پیشگیری از انحراف و قاچاق.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۵ -->
-  <a href="https://hlth3al.github.io/UUAV-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۵</div><div class="panel-title">پنل فرماندهی عملیات زپهپاد (شناورهای بدون سرنشین زیرسطحی هوشمند)</div></div>
-      <div class="panel-summary">ناوبری خودمختار زیرسطحی، سونار هوشمند و پایش امنیتی خطوط ساحلی و دریایی کشور.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۶ -->
-  <a href="https://hlth3al.github.io/Solar-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۶</div><div class="panel-title">پنل فرماندهی عملیات نیروگاه خورشیدی هوشمند</div></div>
-      <div class="panel-summary">پیش‌بینی تابش، مدیریت ردیاب‌های خورشیدی و تزریق بهینه برق به شبکه سراسری.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۷ -->
-  <a href="https://hlth3al.github.io/Turbine-PHM-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۷</div><div class="panel-title">پنل فرماندهی عملیات پایش سلامت تجهیزات دوار و توربین‌ها</div></div>
-      <div class="panel-summary">تحلیل ارتعاشات غیرخطی، تشخیص واماندگی قطعات و پیش‌بینی عمر مفید (RUL) پیش از خرابی.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۸ -->
-  <a href="https://hlth3al.github.io/UAV-Navigation-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۸</div><div class="panel-title">پنل فرماندهی عملیات ناوبری امن و ضد جَمینگ/اسپوفینگ</div></div>
-      <div class="panel-summary">ناوبری تاب‌آور در محیط‌های جنگ الکترونیک با استفاده از تلفیق داده‌های اینرسیایی و بصری.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۹ -->
-  <a href="https://hlth3al.github.io/Pipeline-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۹</div><div class="panel-title">پنل فرماندهی عملیات پایش پیوستگی و ضد سرقت خطوط لوله</div></div>
-      <div class="panel-summary">تشخیص بلادرنگ نشتی و انشعابات غیرمجاز در شبکه گسترده خطوط انتقال نفت و گاز.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۱۰ -->
-  <a href="https://hlth3al.github.io/Microgrid-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۱۰</div><div class="panel-title">پنل فرماندهی عملیات بهینه‌سازی و مدیریت ریزشبکه‌های هیبریدی</div></div>
-      <div class="panel-summary">مدیریت بار شبکه، کاهش اوج مصرف و پایداری تغذیه صنایع بزرگ با منابع تولید پراکنده.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۱۱ -->
-  <a href="https://hlth3al.github.io/Teacher-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۱۱</div><div class="panel-title">پنل هوش مصنوعی انجام دهنده خواسته های دانش آموز و دانشجوی مجازی</div></div>
-      <div class="panel-summary">دستیار آموزشی هوشمند جهت حل مسائل پیچیده، تدوین متدولوژی مطالعاتی و آموزش گام‌به‌گام.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-
-  <!-- ۱۲ -->
-  <a href="https://hlth3al.github.io/CCB-AI/" target="_blank" class="panel-card">
-    <div>
-      <div class="panel-header"><div class="panel-num">۱۲</div><div class="panel-title">پنل فرماندهی عملیاتهای بانک مرکزی</div></div>
-      <div class="panel-summary">نظارت بر جریان‌های پولی، کنترل سفته‌بازی ارزی و دیسپاچینگ هوشمند منابع نقدینگی بانکی.</div>
-    </div>
-    <div class="btn-enter">ورود به سامانه ←</div>
-  </a>
-</div>
-
-<div class="footer">
-  <div style="margin-bottom: 6px;">مدیر عامل: <strong>حسین لعلیان</strong></div>
-  <div>رایانامه: <code>ai.algorithms.ballistics@gmail.com</code></div>
+    panels.forEach(p => {
+      document.write(`
+        <div class="card">
+          <h3>${p.t}</h3>
+          <p>${p.d}</p>
+          <a href="${p.l}" target="_blank" class="btn" onclick="playBeep()">ورود به سامانه ←</a>
+        </div>
+      `);
+    });
+  </script>
 </div>
 
 </body>
